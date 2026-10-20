@@ -1,0 +1,2359 @@
+<html lang="fa" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#c8ff00">
+<title>منوی هـِــگـِـه | Good Food. Good Mood.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --acid: #c8ff00;
+  --orange: #ff5a00;
+  --ink: #141510;
+  --paper: #f4f0df;
+  --card-bg: #fbf9f1;
+  --shadow-hard: 5px 5px 0px var(--ink);
+  --shadow-sm: 3px 3px 0px var(--ink);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--acid);
+  color: var(--ink);
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, Tahoma, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Animated Text Tickers */
+.bg-ticker-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.08;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transform: rotate(-5deg) scale(1.2);
+}
+
+.bg-ticker {
+  white-space: nowrap;
+  font-size: clamp(48px, 11vw, 110px);
+  font-weight: 900;
+  color: var(--ink);
+  text-transform: uppercase;
+  display: flex;
+  gap: 40px;
+  animation: bgMarquee 22s linear infinite;
+  user-select: none;
+}
+
+.bg-ticker.reverse {
+  animation: bgMarqueeRev 26s linear infinite;
+}
+
+@keyframes bgMarquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes bgMarqueeRev {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Layout Wrapper */
+.wrap {
+  width: min(1180px, calc(100% - 24px));
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header & Nav */
+header {
+  padding: 14px 0;
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper);
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 4px 0 rgba(20,21,16,0.1);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+}
+
+.logo-stamp {
+  width: 48px;
+  height: 48px;
+  background: var(--orange);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  transform: rotate(-6deg);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.logo-stamp:hover {
+  transform: rotate(6deg) scale(1.05);
+}
+
+.logo-title {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.logo-sub {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  direction: ltr;
+  text-align: right;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Hero Banner */
+.hero {
+  padding: 24px 0 20px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero-card {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  padding: clamp(18px, 4vw, 36px);
+  position: relative;
+}
+
+.hero-sticker {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 900;
+  transform: rotate(-3deg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+}
+
+h1.hero-title {
+  font-size: clamp(36px, 7vw, 72px);
+  letter-spacing: -2px;
+  line-height: 0.95;
+  margin: 8px 0 14px;
+  font-weight: 900;
+}
+
+h1.hero-title .highlight {
+  color: var(--orange);
+  display: inline-block;
+  transform: rotate(-2deg);
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.hero-desc {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 0 20px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-brutal {
+  background: var(--acid);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  padding: 11px 16px;
+  font-weight: 900;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.12s ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--ink);
+}
+
+.btn-brutal:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink);
+}
+
+.btn-brutal.orange {
+  background: var(--orange);
+}
+
+.btn-brutal.black {
+  background: var(--ink);
+  color: var(--acid);
+}
+
+/* Hero Visual Frame */
+.hero-visual {
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  background: var(--orange);
+  position: relative;
+  min-height: 280px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.2) contrast(1.05);
+}
+
+.visual-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: var(--acid);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  padding: 7px 12px;
+  font-weight: 900;
+  font-size: 12px;
+  transform: rotate(2deg);
+}
+
+.visual-stamp {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--orange);
+  border: 3px solid var(--ink);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 900;
+  font-size: 11px;
+  line-height: 1.1;
+  transform: rotate(-12deg);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Filter Controls */
+.menu-controls {
+  margin: 24px 0 16px;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  padding: 10px 14px;
+  font-weight: 900;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.12s ease;
+  flex-shrink: 0;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  background: var(--ink);
+  color: var(--acid);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--orange);
+}
+
+/* Menu Grid */
+.menu-section {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  padding: 18px;
+  margin-bottom: 32px;
+}
+
+.menu-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.menu-section-header h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.item-counter {
+  background: var(--orange);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  padding: 5px 10px;
+  font-weight: 900;
+  font-size: 12px;
+  transform: rotate(2deg);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Single Dish Card */
+.dish-card {
+  background: var(--card-bg);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+}
+
+.dish-card:hover {
+  transform: translate(-3px, -3px) rotate(-0.5deg);
+  box-shadow: 6px 6px 0px var(--ink);
+}
+
+.dish-card.highlighted {
+  animation: pulseCard 1s ease 2;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px var(--orange), 6px 6px 0px var(--ink);
+}
+
+@keyframes pulseCard {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03) rotate(1deg); }
+}
+
+.dish-img-wrapper {
+  height: 180px;
+  border-bottom: 3px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+  background: #e2ded0;
+}
+
+.dish-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.dish-card:hover .dish-img-wrapper img {
+  transform: scale(1.06);
+}
+
+.dish-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--acid);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 900;
+  transform: rotate(2deg);
+}
+
+.dish-card:nth-child(even) .dish-tag {
+  background: var(--orange);
+  transform: rotate(-3deg);
+}
+
+.dish-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dish-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.dish-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.dish-price {
+  background: var(--acid);
+  border: 2px solid var(--ink);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0 var(--ink);
+  flex-shrink: 0;
+}
+
+.dish-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin: 0 0 12px;
+  flex-grow: 1;
+}
+
+.dish-footer-meta {
+  border-top: 2px dashed rgba(20,21,16,0.3);
+  padding-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #333;
+}
+
+.dish-footer-meta strong {
+  font-weight: 900;
+  color: var(--ink);
+}
+
+/* Empty State */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 16px;
+  border: 3px dashed var(--ink);
+  background: rgba(255,255,255,0.4);
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* Info Cards */
+.bottom-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.info-card {
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  padding: 20px;
+  background: var(--orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card:nth-child(2) {
+  background: var(--ink);
+  color: var(--paper);
+  transform: rotate(1deg);
+}
+
+.info-card:nth-child(2) .info-card-sticker {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.info-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.info-card p {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.info-card-sticker {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 24px;
+}
+
+/* Toast Popup */
+.toast-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  z-index: 100;
+  background: var(--acid);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 14px 18px;
+  font-weight: 900;
+  max-width: min(460px, calc(100vw - 28px));
+  width: 100%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.toast-popup.show {
+  transform: translateX(-50%) translateY(0%);
+}
+
+.toast-close {
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  padding: 4px 8px;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Footer */
+footer {
+  background: #0d0e0a;
+  color: #a0a496;
+  padding: 24px 0 32px;
+  font-size: 12px;
+  font-weight: 700;
+  border-top: 3px solid var(--ink);
+}
+
+/* ========== Mobile-first responsive ========== */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .hero-visual {
+    min-height: 200px;
+    order: -1;
+  }
+  .visual-stamp {
+    width: 64px;
+    height: 64px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    width: calc(100% - 16px);
+  }
+  header {
+    padding: 12px 0;
+  }
+  .logo-title { font-size: 18px; }
+  .logo-stamp { width: 40px; height: 40px; font-size: 20px; }
+  .logo-sub { font-size: 9px; letter-spacing: 1px; }
+
+  h1.hero-title { font-size: 40px; letter-spacing: -1.5px; }
+  .hero-desc { font-size: 13px; margin-bottom: 16px; }
+  .hero-cta-group { gap: 8px; }
+  .btn-brutal { padding: 10px 14px; font-size: 12px; }
+
+  .menu-section {
+    padding: 14px;
+    margin-bottom: 24px;
+  }
+  .menu-section-header h2 { font-size: 20px; }
+  .item-counter { font-size: 11px; padding: 4px 8px; }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .dish-card {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    min-height: 0;
+  }
+  .dish-img-wrapper {
+    height: 100%;
+    min-height: 130px;
+    border-bottom: 0;
+    border-left: 3px solid var(--ink);
+  }
+  .dish-body { padding: 10px 12px; }
+  .dish-title { font-size: 15px; }
+  .dish-price { font-size: 11px; padding: 3px 6px; }
+  .dish-desc { font-size: 11px; margin-bottom: 8px; line-height: 1.5; }
+  .dish-footer-meta { font-size: 11px; padding-top: 8px; }
+  .dish-tag { font-size: 10px; padding: 3px 7px; top: 8px; right: 8px; }
+
+  .tab-btn { padding: 9px 12px; font-size: 12px; }
+
+  .bottom-info-cards { gap: 12px; margin-bottom: 28px; }
+  .info-card { padding: 16px; }
+  .info-card h3 { font-size: 17px; }
+  .info-card p { font-size: 12px; }
+
+  .toast-popup {
+    bottom: 14px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .bg-ticker {
+    font-size: clamp(40px, 14vw, 80px);
+  }
+}
+
+@media (max-width: 380px) {
+  .dish-card {
+    grid-template-columns: 96px 1fr;
+  }
+  .dish-img-wrapper { min-height: 120px; }
+  .dish-title { font-size: 14px; }
+  h1.hero-title { font-size: 34px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Animated Giant Background Tickers -->
+<div class="bg-ticker-container" aria-hidden="true">
+  <div class="bg-ticker">
+    <span>HEGE HEGE HEGE</span> <span>•</span> <span>NO YAP JUST FOOD</span> <span>•</span> <span>پیتزا نو ثاتس</span> <span>•</span> <span>پنیر کش میاد تو هم بیا</span>
+  </div>
+  <div class="bg-ticker reverse">
+    <span>گرسنه&zwnj;ای؟ بیا!</span> <span>•</span> <span>HEGE PIZZA SHOP</span> <span>•</span> <span>GOOD FOOD ONLY</span> <span>•</span> <span>HEGE CORE</span>
+  </div>
+  <div class="bg-ticker">
+    <span>منوی سریع</span> <span>•</span> <span>هگه هگه هگه</span> <span>•</span> <span>انتخاب آسان</span> <span>•</span> <span>۱۰/۱۰</span>
+  </div>
+</div>
+
+<!-- Navigation Header -->
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-stamp">ه</div>
+      <div>
+        <div class="logo-title">هـِــگـِـه | HEGGE</div>
+        <div class="logo-sub">PURE TASTY FOODS</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-card">
+      <span class="hero-sticker">منوی رسمی هگه</span>
+      <h1 class="hero-title">
+        انتخاب کن،<br>
+        <span class="highlight">فک نکن!</span>
+      </h1>
+      <p class="hero-desc">
+        مغزت شلوغه؟ بی&zwnj;خیال تحلیل کردن منو. اینجا بدون داستان، فقط غذای خوب داری. منو رو ببین، حالشو ببر.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#menu-grid" class="btn-brutal orange">مشاهده غذاها ↓</a>
+        <button class="btn-brutal black" onclick="solveParalysis()">شانسی برام انتخاب کن</button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="پیتزا هگه" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&amp;fit=crop&amp;w=1000&amp;q=80';">
+      <div class="visual-stamp">BIG<br>CHEESE<br>ENERGY</div>
+      <div class="visual-badge">اینجا رژیم فردا شروع می&zwnj;شه</div>
+    </div>
+  </section>
+
+  <!-- Category Tabs -->
+  <div class="menu-controls">
+    <div class="category-tabs" id="categoryTabs">
+      <button class="tab-btn active" data-cat="all">همه چی</button>
+      <button class="tab-btn" data-cat="pizza">پیتزاها</button>
+      <button class="tab-btn" data-cat="burger">برگرها</button>
+      <button class="tab-btn" data-cat="sandwich">ساندویچ&zwnj;ها</button>
+    </div>
+  </div>
+
+  <!-- Main Menu -->
+  <section class="menu-section" id="menu-grid">
+    <div class="menu-section-header">
+      <h2>منوی هگه</h2>
+      <div class="item-counter" id="itemCounter">۵۵ آیتم</div>
+    </div>
+    <div class="menu-grid" id="dishesGrid">
+    <article class="dish-card" id="dish-1">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/74be4ea8b7fa7ca8.jpg" alt="پیتزا چیکن پستو" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">پستو</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا چیکن پستو</h3>
+          <div class="dish-price">۹۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس پستو ، قارچ ، 200 گرم گوشت مرغ ، زیتون ، گوجه خشک ،فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس پستو ، قارچ ، 200 گرم گوشت مرغ ، زیتون ، گوجه خشک ،فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-2">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/33ffcb5da1f6e092.jpg" alt="پیتزا باربیکیو چیکن" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">باربیکیو</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا باربیکیو چیکن</h3>
+          <div class="dish-price">۹۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس باربیکیو ، قارچ ، 200 گرم گوشت مرغ خورد شده، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس باربیکیو ، قارچ ، 200 گرم گوشت مرغ خورد شده، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-3">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/a3ac2f05f9c524c2.jpg" alt="پیتزا فیله چیز استیک" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">استیک</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا فیله چیز استیک</h3>
+          <div class="dish-price">۱٬۶۰۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس سیر ، قارچ ، 200 گرم گوشت راسته گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس سیر ، قارچ ، 200 گرم گوشت راسته گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-4">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/cd16759864ae64a8.jpg" alt="پیتزا ساسیج پارتی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">پارتی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا ساسیج پارتی</h3>
+          <div class="dish-price">۸۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس مخصوص ، قارچ ، 300 گرم میکس سوسیس و ژامبون 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس مخصوص ، قارچ ، 300 گرم میکس سوسیس و ژامبون 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-5">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/1640970f0d2f8d4d.jpg" alt="پیتزا پولد بیف" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">پولد بیف</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا پولد بیف</h3>
+          <div class="dish-price">۱٬۲۰۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس مخصوص ، قارچ ، 200 گرم گوشت ریش ریش شده  گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس مخصوص ، قارچ ، 200 گرم گوشت ریش ریش شده  گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-6">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/9220ef58dbe175ae.jpg" alt="پیتزا ماشروم" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">قارچ</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا ماشروم</h3>
+          <div class="dish-price">۵۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس مخصوص ، قارچ 200 گرم، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس مخصوص ، قارچ 200 گرم، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-7">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/20e217a3bd9d3be5.jpg" alt="پیتزا پپرونی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">پپرونی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا پپرونی</h3>
+          <div class="dish-price">۸۶۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">سس مخصوص ، قارچ ، 200 گرم پپرونی 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> سس مخصوص ، قارچ ، 200 گرم پپرونی 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-8">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/dd5cab7c9dcffd64.jpg" alt="پیتزا اسپشیال آمریکایی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">آمریکایی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پیتزا اسپشیال آمریکایی</h3>
+          <div class="dish-price">۱٬۱۰۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">خمیر پیتزا آمریکایی، 100 گرم گوشت چرخ کرده گوساله،200 گرم میکس سوسیس و کالباس 80 درصد، قارچ، پنیر پیتزا، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> خمیر پیتزا آمریکایی، 100 گرم گوشت چرخ کرده گوساله،200 گرم میکس سوسیس و کالباس 80 درصد، قارچ، پنیر پیتزا، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-9">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/9976024a3c2a31d7.jpg" alt="برگر کلاسیک" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">کلاسیک</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">برگر کلاسیک</h3>
+          <div class="dish-price">۷۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد برگر دست ساز گوشت گوساله130 گرمی، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد برگر دست ساز گوشت گوساله130 گرمی، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-10">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/254e3655dea5268d.jpg" alt="چیز برگر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">چیز</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">چیز برگر</h3>
+          <div class="dish-price">۸۳۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد برگر دست ساز گوشت گوساله130 گرمی،پنیر ورقه ای ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد برگر دست ساز گوشت گوساله130 گرمی،پنیر ورقه ای ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-11">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/35cfc223722e2dee.jpg" alt="دبل چیز برگر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">دبل</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">دبل چیز برگر</h3>
+          <div class="dish-price">۱٬۱۳۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">2 عدد برگر دست ساز گوشت گوساله130 گرمی، 2 عدد پنیر ورقه ای ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 2 عدد برگر دست ساز گوشت گوساله130 گرمی، 2 عدد پنیر ورقه ای ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-12">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/7618d43a42416050.jpg" alt="چیکن برگر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">چیکن</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">چیکن برگر</h3>
+          <div class="dish-price">۵۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">۲۰۰ گرم فیله مرغ ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> ۲۰۰ گرم فیله مرغ ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-13">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/a69a3ec914e259a3.jpg" alt="هگه برگر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">هگه</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">هگه برگر</h3>
+          <div class="dish-price">۱٬۱۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد برگر دست ساز گوشت گوساله130 گرمی،یک عدد چوریتسو گوشت 95 درصد ،۵۰گرم راسته گوساله مزه دار شده ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد برگر دست ساز گوشت گوساله130 گرمی،یک عدد چوریتسو گوشت 95 درصد ،۵۰گرم راسته گوساله مزه دار شده ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-14">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/6b76678d6754e517.jpg" alt="ماشروم چیز برگر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">ماشروم</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ماشروم چیز برگر</h3>
+          <div class="dish-price">۸۳۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد برگر دست ساز گوشت گوساله130 گرمی، قارچ ، پنیر ورقه ای کاهو، گوجه، خیارشور، نان برگر، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد برگر دست ساز گوشت گوساله130 گرمی، قارچ ، پنیر ورقه ای کاهو، گوجه، خیارشور، نان برگر، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-15">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/1d66c553e9e2923d.jpg" alt="ساندویچ هات داگ ساده" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">هات داگ ساده</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ هات داگ ساده</h3>
+          <div class="dish-price">۴۶۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد هات داگ گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد هات داگ گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-16">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/371c8bc7ca85edee.jpg" alt="ساندویچ هات داگ با قارچ و پنیر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">هات داگ با قار</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ هات داگ با قارچ و پنیر</h3>
+          <div class="dish-price">۵۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد سوسیس هات داگ گوشت 90٪ ،قارچ، کاهو، خیارشور، گوجه، پنیر پیتزا، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد سوسیس هات داگ گوشت 90٪ ،قارچ، کاهو، خیارشور، گوجه، پنیر پیتزا، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-17">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/cb6b8f87cbc89d9b.jpg" alt="ساندویچ کوکتل پنیری" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">کوکتل پنیری</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ کوکتل پنیری</h3>
+          <div class="dish-price">۵۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3 عدد سوسیس کوکتل پنیری گوشت 90% ، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3 عدد سوسیس کوکتل پنیری گوشت 90% ، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-18">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="ساندویچ کراکف پنیری" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">کراکف پنیری</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ کراکف پنیری</h3>
+          <div class="dish-price">۵۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد سوسیس کراکف پنیری گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد سوسیس کراکف پنیری گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-19">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/df57f450af6b9af3.jpg" alt="ساندویچ سوسیس بندری" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">سوسیس بندری</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ سوسیس بندری</h3>
+          <div class="dish-price">۳۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">۳۵۰گرم خوراک بندری، سوسیس گوشت 70%، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> ۳۵۰گرم خوراک بندری، سوسیس گوشت 70%، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-20">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/de0536e7fbb490af.jpg" alt="ساندویچ مرغ کوبایی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">مرغ کوبایی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ مرغ کوبایی</h3>
+          <div class="dish-price">۶۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">فیله مرغ ۲۱۰گرم،ژامبون مرغ،پنیر گودا،کاهو، گوجه، خیارشور، سس مخصوص، نان باگت</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> فیله مرغ ۲۱۰گرم،ژامبون مرغ،پنیر گودا،کاهو، گوجه، خیارشور، سس مخصوص، نان باگت
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-21">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/907d673c1adf1891.jpg" alt="ساندویچ چوریتسو" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">چوریتسو</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ چوریتسو</h3>
+          <div class="dish-price">۶۲۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3عددگرم سوسیس چوریتسو گوشت 95% ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3عددگرم سوسیس چوریتسو گوشت 95% ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-22">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="ساندویچ مرغ گریل" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">مرغ گریل</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ مرغ گریل</h3>
+          <div class="dish-price">۴۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">۲۰۰ گرم فیله مرغ گریل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> ۲۰۰ گرم فیله مرغ گریل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-23">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/860792c6884715a8.jpg" alt="ساندویچ مرغ و پستو" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">مرغ و پستو</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ مرغ و پستو</h3>
+          <div class="dish-price">۵۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">۲۰۰ گرم فیله مرغ طعم دار شده با سس پستو،زیتون ، گوجه خشک ، کاهو، گوجه، خیارشور، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> ۲۰۰ گرم فیله مرغ طعم دار شده با سس پستو،زیتون ، گوجه خشک ، کاهو، گوجه، خیارشور، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-24">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="ساندویچ فلافل با قارچ و پنیر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">فلافل با قارچ </span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ فلافل با قارچ و پنیر</h3>
+          <div class="dish-price">۱۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">6 قرص فلافل، قارچ، کاهو، گوجه، خیارشور، پنیر موزارلا، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 6 قرص فلافل، قارچ، کاهو، گوجه، خیارشور، پنیر موزارلا، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-25">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/60497095451538c9.jpg" alt="ساندویچ سوسیس شکاری" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">سوسیس شکاری</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ سوسیس شکاری</h3>
+          <div class="dish-price">۵۲۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">200 گرم سوسیس گوشت گوساله شکاری گوشت 95%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 200 گرم سوسیس گوشت گوساله شکاری گوشت 95%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-26">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/4a805992b7c3b318.jpg" alt="ساندویچ رست بیف" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">رست بیف</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ رست بیف</h3>
+          <div class="dish-price">۹۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">160 گرم گوشت فیله گوساله ریش ریش شده، کاهو،&zwnj; گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 160 گرم گوشت فیله گوساله ریش ریش شده، کاهو،&zwnj; گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-27">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/062bba9a6048e375.jpg" alt="استیک هگه" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">استیک هگه</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">استیک هگه</h3>
+          <div class="dish-price">۱٬۱۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">200 گرم راسته گوساله مزه دار شده ، کاهو ، گوجه، خیارشور، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 200 گرم راسته گوساله مزه دار شده ، کاهو ، گوجه، خیارشور، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-28">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/dca80d126e0e018b.jpg" alt="ساندویچ ژامبون فرانسوی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">ژامبون فرانسوی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ ژامبون فرانسوی</h3>
+          <div class="dish-price">۴۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3 ورق ژامبون گوشت یا مرغ تنوری شده 80 درصد ،میکائیلیان ،قارچ و پنیر ، نان باگت ، کاهو ، گوجه ، خیارشور و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3 ورق ژامبون گوشت یا مرغ تنوری شده 80 درصد ،میکائیلیان ،قارچ و پنیر ، نان باگت ، کاهو ، گوجه ، خیارشور و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-29">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/cb32401ecee6e320.jpg" alt="ساندویچ محفل مرغ" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">محفل مرغ</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ محفل مرغ</h3>
+          <div class="dish-price">۶۲۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">۲۰۰گرم فیله مرغ ، قارچ ، فلفل دلمه ای ، جوانه ماش ، گوجه ، خیارشور، کاهو ، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> ۲۰۰گرم فیله مرغ ، قارچ ، فلفل دلمه ای ، جوانه ماش ، گوجه ، خیارشور، کاهو ، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-30">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="ساندویچ فلافل" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">فلافل</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ فلافل</h3>
+          <div class="dish-price">۱۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">6 قرص فلافل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 6 قرص فلافل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-31">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/c39942b70262f907.jpg" alt="ساندویچ محفل گوشت" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">محفل گوشت</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ محفل گوشت</h3>
+          <div class="dish-price">۱٬۲۰۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">160 گرم راسته گوساله مزه دار شده ، قارچ، فلفل دلمه ای، جوانه ماش ، گوجه ، خیارشور، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 160 گرم راسته گوساله مزه دار شده ، قارچ، فلفل دلمه ای، جوانه ماش ، گوجه ، خیارشور، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-32">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="برگر نوستالژی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">نوستالژی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">برگر نوستالژی</h3>
+          <div class="dish-price">۷۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">100 گرم گوشت گوساله برگر ، گوجه، خیارشور، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 100 گرم گوشت گوساله برگر ، گوجه، خیارشور، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-33">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="ساندویچ کوکتل ساده" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">کوکتل ساده</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ کوکتل ساده</h3>
+          <div class="dish-price">۳۶۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3 عدد سوسیس کوکتل گوشت 90٪ ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3 عدد سوسیس کوکتل گوشت 90٪ ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-34">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/86858959e0760f7a.jpg" alt="ساندویچ ژامبون مرغ سرد" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">ژامبون مرغ سرد</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ ژامبون مرغ سرد</h3>
+          <div class="dish-price">۳۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3 ورق ژامبون مرغ 80%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3 ورق ژامبون مرغ 80%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-35">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/4013d62a51626d55.jpg" alt="الویه" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">الویه</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">الویه</h3>
+          <div class="dish-price">۲۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">300 گرم الویه، سینه مرغ ریش ریش شده، ژامبون گوشت و مرغ 80 درصد ، خیارشور و گوجه فرنگی، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 300 گرم الویه، سینه مرغ ریش ریش شده، ژامبون گوشت و مرغ 80 درصد ، خیارشور و گوجه فرنگی، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-36">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/da03f6bfeb4e994f.jpg" alt="ساندویچ ایتالین ساب" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">ایتالین ساب</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ ایتالین ساب</h3>
+          <div class="dish-price">۵۶۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3 ورق ژامبون گوشت 80 درصد، 6 ورق سالامی 90 درصد گوشت قرمز ، پنیر خامه ای ویلی ، زیتون ، فلفل هالوپینو ، گوجه خشک ، پنیر ورقه ای مطهر، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3 ورق ژامبون گوشت 80 درصد، 6 ورق سالامی 90 درصد گوشت قرمز ، پنیر خامه ای ویلی ، زیتون ، فلفل هالوپینو ، گوجه خشک ، پنیر ورقه ای مطهر، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-37">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="ساندویچ ژامبون گوشت و پنیر خامه ای" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">ژامبون گوشت و </span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">ساندویچ ژامبون گوشت و پنیر خامه ای</h3>
+          <div class="dish-price">۴۳۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">3 ورق ژامبون گوشت 80 درصد، پنیر خامه ای ویلی، گوجه، خیارشور، نان باگت و سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 3 ورق ژامبون گوشت 80 درصد، پنیر خامه ای ویلی، گوجه، خیارشور، نان باگت و سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-38">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/d56772e80eb0526b.jpg" alt="نان سیر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">نان سیر</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">نان سیر</h3>
+          <div class="dish-price">۵۹۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">خمیر دست ساز پیتزا ، سس سیر ، پنیر پیتزا ، زیتون</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> خمیر دست ساز پیتزا ، سس سیر ، پنیر پیتزا ، زیتون
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-39">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/294c2362981a57be.jpg" alt="سیب زمینی با قارچ و پنیر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">سیب زمینی با ق</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">سیب زمینی با قارچ و پنیر</h3>
+          <div class="dish-price">۴۶۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">250 گرم، سیب زمینی سرخ شده، قارچ ورقه ای، پنیر پیتزا، سس کچاپ</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 250 گرم، سیب زمینی سرخ شده، قارچ ورقه ای، پنیر پیتزا، سس کچاپ
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-40">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/a7bfec10a20aba32.jpg" alt="سیب زمینی ساده" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">سیب زمینی ساده</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">سیب زمینی ساده</h3>
+          <div class="dish-price">۳۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">150 گرم سیب زمینی سرخ شده ، سس کچاپ و مایونز</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 150 گرم سیب زمینی سرخ شده ، سس کچاپ و مایونز
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-41">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/04d9421646964b84.jpg" alt="سیب زمینی با پنیر چدار و ژامبون" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">سیب زمینی با پ</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">سیب زمینی با پنیر چدار و ژامبون</h3>
+          <div class="dish-price">۴۶۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">250 گرم سیب زمینی سرخ شده، پنیر چدار ، یک ورق ژامبون 80 درصد</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 250 گرم سیب زمینی سرخ شده، پنیر چدار ، یک ورق ژامبون 80 درصد
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-42">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/2512ee6360982c30.jpg" alt="سالاد میکس" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">سالاد میکس</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">سالاد میکس</h3>
+          <div class="dish-price">۳۴۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">400 گرم، کاهو، خیارشور، گوجه، سس مخصوص، جوانه ماش، زیتون، گوجه خشک</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 400 گرم، کاهو، خیارشور، گوجه، سس مخصوص، جوانه ماش، زیتون، گوجه خشک
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-43">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="نوشابه کوکا شیشه ای" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">نوشابه کوکا شی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">نوشابه کوکا شیشه ای</h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد نوشابه 250 سی سی مشکی</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد نوشابه 250 سی سی مشکی
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-44">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="نوشابه فانتا شیشه ای" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">نوشابه فانتا ش</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">نوشابه فانتا شیشه ای</h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد نوشابه 250 سی سی شیشه ای زرد</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد نوشابه 250 سی سی شیشه ای زرد
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-45">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="نوشابه اسپرایت شیشه ای " loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">نوشابه اسپرایت</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">نوشابه اسپرایت شیشه ای </h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد نوشابه شیشه ای اسپرایت 250 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد نوشابه شیشه ای اسپرایت 250 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-46">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="لیموناد شیشه ای خوشگوار" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">لیموناد شیشه ا</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">لیموناد شیشه ای خوشگوار</h3>
+          <div class="dish-price">۷۲٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">280 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 280 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-47">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="دلستر هی دی لیمو" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">دلستر هی دی لی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">دلستر هی دی لیمو</h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد دلستر شیشه ای هی دی با طعم لیمو 250 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد دلستر شیشه ای هی دی با طعم لیمو 250 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-48">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="نوشابه زیرو شیشه ای" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">نوشابه زیرو شی</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">نوشابه زیرو شیشه ای</h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد نوشابه زیرو شیشه ای 250 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد نوشابه زیرو شیشه ای 250 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-49">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="آب گازدار نیو دی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">آب گازدار نیو </span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">آب گازدار نیو دی</h3>
+          <div class="dish-price">۵۱٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">آب گاز دار با طعم لیمو 300 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> آب گاز دار با طعم لیمو 300 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-50">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="دلستر هی دی استوایی" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">دلستر هی دی اس</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">دلستر هی دی استوایی</h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد دلستر هی دی شیشه ای با طعم استوایی 250 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد دلستر هی دی شیشه ای با طعم استوایی 250 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-51">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="آب معدنی کوچک" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">آب معدنی کوچک</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">آب معدنی کوچک</h3>
+          <div class="dish-price">۲۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">500 میلی لیتر</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 500 میلی لیتر
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-52">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="پنیر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">پنیر</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">پنیر</h3>
+          <div class="dish-price">۱۰۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">90 گرم پنیر پیتزا</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 90 گرم پنیر پیتزا
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-53">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="قارچ و پنیر" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">قارچ و پنیر</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">قارچ و پنیر</h3>
+          <div class="dish-price">۱۳۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">قارچ و پنیر 150 گرم</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> قارچ و پنیر 150 گرم
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-54">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="خوراک فیله مرغ گریل" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">خوراک فیله مرغ</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">خوراک فیله مرغ گریل</h3>
+          <div class="dish-price">۱۳۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">یک عدد فیله مرغ 70 گرمی ، سس مخصوص</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> یک عدد فیله مرغ 70 گرمی ، سس مخصوص
+        </div>
+      </div>
+    </article>
+  
+    <article class="dish-card" id="dish-55">
+      <div class="dish-img-wrapper">
+        <img src="https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png" alt="قارچ تفت داده شده" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
+        <span class="dish-tag">قارچ تفت داده </span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">قارچ تفت داده شده</h3>
+          <div class="dish-price">۸۰٬۰۰۰ تومان</div>
+        </div>
+        <p class="dish-desc">100 گرم قارچ تفت داده شده</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> 100 گرم قارچ تفت داده شده
+        </div>
+      </div>
+    </article>
+  </div>
+  </section>
+
+  <!-- Info Cards -->
+  <section class="bottom-info-cards">
+    <article class="info-card">
+      <div class="info-card-sticker">📍</div>
+      <h3>سفارش حضوری و تلفنی</h3>
+      <p>برای ثبت سفارش زنگ بزن به <b>۰۲۱۲۲۲۰۱۹۱۱</b> یا پاشو بیا مغازه از نزدیک ببینیمت.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-card-sticker">🎲</div>
+      <h3>نمی&zwnj;دونی چی بگیری؟</h3>
+      <p>دکمه «شانسی برام انتخاب کن» بالای صفحه رو بزن و تمام.</p>
+    </article>
+  </section>
+
+</main>
+
+<!-- Toast -->
+<div class="toast-popup" id="toastPopup">
+  <div id="toastContent">پیشنهاد شانسی هگه!</div>
+  <button class="toast-close" onclick="closeToast()">بستن</button>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+    <div>هـِــگـِـه | Good Food. Good Mood.</div>
+  </div>
+</footer>
+
+<script>
+const fmtPrice = num => new Intl.NumberFormat('fa-IR').format(num);
+
+const dishesData = [
+  {
+    id: 1,
+    cat: "pizza",
+    name: "پیتزا چیکن پستو",
+    tag: "پستو",
+    price: 990000,
+    desc: "سس پستو ، قارچ ، 200 گرم گوشت مرغ ، زیتون ، گوجه خشک ،فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس پستو ، قارچ ، 200 گرم گوشت مرغ ، زیتون ، گوجه خشک ،فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/74be4ea8b7fa7ca8.jpg"
+  },
+  {
+    id: 2,
+    cat: "pizza",
+    name: "پیتزا باربیکیو چیکن",
+    tag: "باربیکیو",
+    price: 990000,
+    desc: "سس باربیکیو ، قارچ ، 200 گرم گوشت مرغ خورد شده، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس باربیکیو ، قارچ ، 200 گرم گوشت مرغ خورد شده، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/33ffcb5da1f6e092.jpg"
+  },
+  {
+    id: 3,
+    cat: "pizza",
+    name: "پیتزا فیله چیز استیک",
+    tag: "استیک",
+    price: 1600000,
+    desc: "سس سیر ، قارچ ، 200 گرم گوشت راسته گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس سیر ، قارچ ، 200 گرم گوشت راسته گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/a3ac2f05f9c524c2.jpg"
+  },
+  {
+    id: 4,
+    cat: "pizza",
+    name: "پیتزا ساسیج پارتی",
+    tag: "پارتی",
+    price: 880000,
+    desc: "سس مخصوص ، قارچ ، 300 گرم میکس سوسیس و ژامبون 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس مخصوص ، قارچ ، 300 گرم میکس سوسیس و ژامبون 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/cd16759864ae64a8.jpg"
+  },
+  {
+    id: 5,
+    cat: "pizza",
+    name: "پیتزا پولد بیف",
+    tag: "پولد بیف",
+    price: 1200000,
+    desc: "سس مخصوص ، قارچ ، 200 گرم گوشت ریش ریش شده  گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس مخصوص ، قارچ ، 200 گرم گوشت ریش ریش شده  گوساله، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/1640970f0d2f8d4d.jpg"
+  },
+  {
+    id: 6,
+    cat: "pizza",
+    name: "پیتزا ماشروم",
+    tag: "قارچ",
+    price: 590000,
+    desc: "سس مخصوص ، قارچ 200 گرم، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس مخصوص ، قارچ 200 گرم، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/9220ef58dbe175ae.jpg"
+  },
+  {
+    id: 7,
+    cat: "pizza",
+    name: "پیتزا پپرونی",
+    tag: "پپرونی",
+    price: 860000,
+    desc: "سس مخصوص ، قارچ ، 200 گرم پپرونی 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    ingredients: "سس مخصوص ، قارچ ، 200 گرم پپرونی 80 درصد، زیتون فلفل دلمه ای، خمیر دست ساز پیتزا ، پنیر ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/20e217a3bd9d3be5.jpg"
+  },
+  {
+    id: 8,
+    cat: "pizza",
+    name: "پیتزا اسپشیال آمریکایی",
+    tag: "آمریکایی",
+    price: 1100000,
+    desc: "خمیر پیتزا آمریکایی، 100 گرم گوشت چرخ کرده گوساله،200 گرم میکس سوسیس و کالباس 80 درصد، قارچ، پنیر پیتزا، سس مخصوص",
+    ingredients: "خمیر پیتزا آمریکایی، 100 گرم گوشت چرخ کرده گوساله،200 گرم میکس سوسیس و کالباس 80 درصد، قارچ، پنیر پیتزا، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/dd5cab7c9dcffd64.jpg"
+  },
+  {
+    id: 9,
+    cat: "burger",
+    name: "برگر کلاسیک",
+    tag: "کلاسیک",
+    price: 740000,
+    desc: "یک عدد برگر دست ساز گوشت گوساله130 گرمی، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    ingredients: "یک عدد برگر دست ساز گوشت گوساله130 گرمی، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/9976024a3c2a31d7.jpg"
+  },
+  {
+    id: 10,
+    cat: "burger",
+    name: "چیز برگر",
+    tag: "چیز",
+    price: 830000,
+    desc: "یک عدد برگر دست ساز گوشت گوساله130 گرمی،پنیر ورقه ای ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    ingredients: "یک عدد برگر دست ساز گوشت گوساله130 گرمی،پنیر ورقه ای ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/254e3655dea5268d.jpg"
+  },
+  {
+    id: 11,
+    cat: "burger",
+    name: "دبل چیز برگر",
+    tag: "دبل",
+    price: 1130000,
+    desc: "2 عدد برگر دست ساز گوشت گوساله130 گرمی، 2 عدد پنیر ورقه ای ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    ingredients: "2 عدد برگر دست ساز گوشت گوساله130 گرمی، 2 عدد پنیر ورقه ای ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/35cfc223722e2dee.jpg"
+  },
+  {
+    id: 12,
+    cat: "burger",
+    name: "چیکن برگر",
+    tag: "چیکن",
+    price: 580000,
+    desc: "۲۰۰ گرم فیله مرغ ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    ingredients: "۲۰۰ گرم فیله مرغ ، کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/7618d43a42416050.jpg"
+  },
+  {
+    id: 13,
+    cat: "burger",
+    name: "هگه برگر",
+    tag: "هگه",
+    price: 1190000,
+    desc: "یک عدد برگر دست ساز گوشت گوساله130 گرمی،یک عدد چوریتسو گوشت 95 درصد ،۵۰گرم راسته گوساله مزه دار شده ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    ingredients: "یک عدد برگر دست ساز گوشت گوساله130 گرمی،یک عدد چوریتسو گوشت 95 درصد ،۵۰گرم راسته گوساله مزه دار شده ،کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/a69a3ec914e259a3.jpg"
+  },
+  {
+    id: 14,
+    cat: "burger",
+    name: "ماشروم چیز برگر",
+    tag: "ماشروم",
+    price: 830000,
+    desc: "یک عدد برگر دست ساز گوشت گوساله130 گرمی، قارچ ، پنیر ورقه ای کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    ingredients: "یک عدد برگر دست ساز گوشت گوساله130 گرمی، قارچ ، پنیر ورقه ای کاهو، گوجه، خیارشور، نان برگر، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/6b76678d6754e517.jpg"
+  },
+  {
+    id: 15,
+    cat: "sandwich",
+    name: "ساندویچ هات داگ ساده",
+    tag: "هات داگ ساده",
+    price: 460000,
+    desc: "یک عدد هات داگ گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "یک عدد هات داگ گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/1d66c553e9e2923d.jpg"
+  },
+  {
+    id: 16,
+    cat: "sandwich",
+    name: "ساندویچ هات داگ با قارچ و پنیر",
+    tag: "هات داگ با قار",
+    price: 540000,
+    desc: "یک عدد سوسیس هات داگ گوشت 90٪ ،قارچ، کاهو، خیارشور، گوجه، پنیر پیتزا، نان باگت، سس مخصوص",
+    ingredients: "یک عدد سوسیس هات داگ گوشت 90٪ ،قارچ، کاهو، خیارشور، گوجه، پنیر پیتزا، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/371c8bc7ca85edee.jpg"
+  },
+  {
+    id: 17,
+    cat: "sandwich",
+    name: "ساندویچ کوکتل پنیری",
+    tag: "کوکتل پنیری",
+    price: 540000,
+    desc: "3 عدد سوسیس کوکتل پنیری گوشت 90% ، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "3 عدد سوسیس کوکتل پنیری گوشت 90% ، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/cb6b8f87cbc89d9b.jpg"
+  },
+  {
+    id: 18,
+    cat: "sandwich",
+    name: "ساندویچ کراکف پنیری",
+    tag: "کراکف پنیری",
+    price: 580000,
+    desc: "یک عدد سوسیس کراکف پنیری گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "یک عدد سوسیس کراکف پنیری گوشت 90%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 19,
+    cat: "sandwich",
+    name: "ساندویچ سوسیس بندری",
+    tag: "سوسیس بندری",
+    price: 390000,
+    desc: "۳۵۰گرم خوراک بندری، سوسیس گوشت 70%، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "۳۵۰گرم خوراک بندری، سوسیس گوشت 70%، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/df57f450af6b9af3.jpg"
+  },
+  {
+    id: 20,
+    cat: "sandwich",
+    name: "ساندویچ مرغ کوبایی",
+    tag: "مرغ کوبایی",
+    price: 680000,
+    desc: "فیله مرغ ۲۱۰گرم،ژامبون مرغ،پنیر گودا،کاهو، گوجه، خیارشور، سس مخصوص، نان باگت",
+    ingredients: "فیله مرغ ۲۱۰گرم،ژامبون مرغ،پنیر گودا،کاهو، گوجه، خیارشور، سس مخصوص، نان باگت",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/de0536e7fbb490af.jpg"
+  },
+  {
+    id: 21,
+    cat: "sandwich",
+    name: "ساندویچ چوریتسو",
+    tag: "چوریتسو",
+    price: 620000,
+    desc: "3عددگرم سوسیس چوریتسو گوشت 95% ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "3عددگرم سوسیس چوریتسو گوشت 95% ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/907d673c1adf1891.jpg"
+  },
+  {
+    id: 22,
+    cat: "sandwich",
+    name: "ساندویچ مرغ گریل",
+    tag: "مرغ گریل",
+    price: 480000,
+    desc: "۲۰۰ گرم فیله مرغ گریل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "۲۰۰ گرم فیله مرغ گریل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 23,
+    cat: "sandwich",
+    name: "ساندویچ مرغ و پستو",
+    tag: "مرغ و پستو",
+    price: 590000,
+    desc: "۲۰۰ گرم فیله مرغ طعم دار شده با سس پستو،زیتون ، گوجه خشک ، کاهو، گوجه، خیارشور، نان باگت و سس مخصوص",
+    ingredients: "۲۰۰ گرم فیله مرغ طعم دار شده با سس پستو،زیتون ، گوجه خشک ، کاهو، گوجه، خیارشور، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/860792c6884715a8.jpg"
+  },
+  {
+    id: 24,
+    cat: "sandwich",
+    name: "ساندویچ فلافل با قارچ و پنیر",
+    tag: "فلافل با قارچ ",
+    price: 190000,
+    desc: "6 قرص فلافل، قارچ، کاهو، گوجه، خیارشور، پنیر موزارلا، نان باگت، سس مخصوص",
+    ingredients: "6 قرص فلافل، قارچ، کاهو، گوجه، خیارشور، پنیر موزارلا، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 25,
+    cat: "sandwich",
+    name: "ساندویچ سوسیس شکاری",
+    tag: "سوسیس شکاری",
+    price: 520000,
+    desc: "200 گرم سوسیس گوشت گوساله شکاری گوشت 95%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "200 گرم سوسیس گوشت گوساله شکاری گوشت 95%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/60497095451538c9.jpg"
+  },
+  {
+    id: 26,
+    cat: "sandwich",
+    name: "ساندویچ رست بیف",
+    tag: "رست بیف",
+    price: 990000,
+    desc: "160 گرم گوشت فیله گوساله ریش ریش شده، کاهو،&zwnj; گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "160 گرم گوشت فیله گوساله ریش ریش شده، کاهو،&zwnj; گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/4a805992b7c3b318.jpg"
+  },
+  {
+    id: 27,
+    cat: "sandwich",
+    name: "استیک هگه",
+    tag: "استیک هگه",
+    price: 1190000,
+    desc: "200 گرم راسته گوساله مزه دار شده ، کاهو ، گوجه، خیارشور، نان باگت و سس مخصوص",
+    ingredients: "200 گرم راسته گوساله مزه دار شده ، کاهو ، گوجه، خیارشور، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/062bba9a6048e375.jpg"
+  },
+  {
+    id: 28,
+    cat: "sandwich",
+    name: "ساندویچ ژامبون فرانسوی",
+    tag: "ژامبون فرانسوی",
+    price: 490000,
+    desc: "3 ورق ژامبون گوشت یا مرغ تنوری شده 80 درصد ،میکائیلیان ،قارچ و پنیر ، نان باگت ، کاهو ، گوجه ، خیارشور و سس مخصوص",
+    ingredients: "3 ورق ژامبون گوشت یا مرغ تنوری شده 80 درصد ،میکائیلیان ،قارچ و پنیر ، نان باگت ، کاهو ، گوجه ، خیارشور و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/dca80d126e0e018b.jpg"
+  },
+  {
+    id: 29,
+    cat: "sandwich",
+    name: "ساندویچ محفل مرغ",
+    tag: "محفل مرغ",
+    price: 620000,
+    desc: "۲۰۰گرم فیله مرغ ، قارچ ، فلفل دلمه ای ، جوانه ماش ، گوجه ، خیارشور، کاهو ، نان باگت و سس مخصوص",
+    ingredients: "۲۰۰گرم فیله مرغ ، قارچ ، فلفل دلمه ای ، جوانه ماش ، گوجه ، خیارشور، کاهو ، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/cb32401ecee6e320.jpg"
+  },
+  {
+    id: 30,
+    cat: "sandwich",
+    name: "ساندویچ فلافل",
+    tag: "فلافل",
+    price: 140000,
+    desc: "6 قرص فلافل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "6 قرص فلافل، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 31,
+    cat: "sandwich",
+    name: "ساندویچ محفل گوشت",
+    tag: "محفل گوشت",
+    price: 1200000,
+    desc: "160 گرم راسته گوساله مزه دار شده ، قارچ، فلفل دلمه ای، جوانه ماش ، گوجه ، خیارشور، نان باگت و سس مخصوص",
+    ingredients: "160 گرم راسته گوساله مزه دار شده ، قارچ، فلفل دلمه ای، جوانه ماش ، گوجه ، خیارشور، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/c39942b70262f907.jpg"
+  },
+  {
+    id: 32,
+    cat: "sandwich",
+    name: "برگر نوستالژی",
+    tag: "نوستالژی",
+    price: 740000,
+    desc: "100 گرم گوشت گوساله برگر ، گوجه، خیارشور، نان باگت و سس مخصوص",
+    ingredients: "100 گرم گوشت گوساله برگر ، گوجه، خیارشور، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 33,
+    cat: "sandwich",
+    name: "ساندویچ کوکتل ساده",
+    tag: "کوکتل ساده",
+    price: 360000,
+    desc: "3 عدد سوسیس کوکتل گوشت 90٪ ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "3 عدد سوسیس کوکتل گوشت 90٪ ،کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 34,
+    cat: "cold_sandwich",
+    name: "ساندویچ ژامبون مرغ سرد",
+    tag: "ژامبون مرغ سرد",
+    price: 380000,
+    desc: "3 ورق ژامبون مرغ 80%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    ingredients: "3 ورق ژامبون مرغ 80%، کاهو، گوجه، خیارشور، نان باگت، سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/86858959e0760f7a.jpg"
+  },
+  {
+    id: 35,
+    cat: "cold_sandwich",
+    name: "الویه",
+    tag: "الویه",
+    price: 290000,
+    desc: "300 گرم الویه، سینه مرغ ریش ریش شده، ژامبون گوشت و مرغ 80 درصد ، خیارشور و گوجه فرنگی، نان باگت و سس مخصوص",
+    ingredients: "300 گرم الویه، سینه مرغ ریش ریش شده، ژامبون گوشت و مرغ 80 درصد ، خیارشور و گوجه فرنگی، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/4013d62a51626d55.jpg"
+  },
+  {
+    id: 36,
+    cat: "cold_sandwich",
+    name: "ساندویچ ایتالین ساب",
+    tag: "ایتالین ساب",
+    price: 560000,
+    desc: "3 ورق ژامبون گوشت 80 درصد، 6 ورق سالامی 90 درصد گوشت قرمز ، پنیر خامه ای ویلی ، زیتون ، فلفل هالوپینو ، گوجه خشک ، پنیر ورقه ای مطهر، نان باگت و سس مخصوص",
+    ingredients: "3 ورق ژامبون گوشت 80 درصد، 6 ورق سالامی 90 درصد گوشت قرمز ، پنیر خامه ای ویلی ، زیتون ، فلفل هالوپینو ، گوجه خشک ، پنیر ورقه ای مطهر، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/da03f6bfeb4e994f.jpg"
+  },
+  {
+    id: 37,
+    cat: "cold_sandwich",
+    name: "ساندویچ ژامبون گوشت و پنیر خامه ای",
+    tag: "ژامبون گوشت و ",
+    price: 430000,
+    desc: "3 ورق ژامبون گوشت 80 درصد، پنیر خامه ای ویلی، گوجه، خیارشور، نان باگت و سس مخصوص",
+    ingredients: "3 ورق ژامبون گوشت 80 درصد، پنیر خامه ای ویلی، گوجه، خیارشور، نان باگت و سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 38,
+    cat: "side",
+    name: "نان سیر",
+    tag: "نان سیر",
+    price: 590000,
+    desc: "خمیر دست ساز پیتزا ، سس سیر ، پنیر پیتزا ، زیتون",
+    ingredients: "خمیر دست ساز پیتزا ، سس سیر ، پنیر پیتزا ، زیتون",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/d56772e80eb0526b.jpg"
+  },
+  {
+    id: 39,
+    cat: "side",
+    name: "سیب زمینی با قارچ و پنیر",
+    tag: "سیب زمینی با ق",
+    price: 460000,
+    desc: "250 گرم، سیب زمینی سرخ شده، قارچ ورقه ای، پنیر پیتزا، سس کچاپ",
+    ingredients: "250 گرم، سیب زمینی سرخ شده، قارچ ورقه ای، پنیر پیتزا، سس کچاپ",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/294c2362981a57be.jpg"
+  },
+  {
+    id: 40,
+    cat: "side",
+    name: "سیب زمینی ساده",
+    tag: "سیب زمینی ساده",
+    price: 340000,
+    desc: "150 گرم سیب زمینی سرخ شده ، سس کچاپ و مایونز",
+    ingredients: "150 گرم سیب زمینی سرخ شده ، سس کچاپ و مایونز",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/a7bfec10a20aba32.jpg"
+  },
+  {
+    id: 41,
+    cat: "side",
+    name: "سیب زمینی با پنیر چدار و ژامبون",
+    tag: "سیب زمینی با پ",
+    price: 460000,
+    desc: "250 گرم سیب زمینی سرخ شده، پنیر چدار ، یک ورق ژامبون 80 درصد",
+    ingredients: "250 گرم سیب زمینی سرخ شده، پنیر چدار ، یک ورق ژامبون 80 درصد",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/04d9421646964b84.jpg"
+  },
+  {
+    id: 42,
+    cat: "side",
+    name: "سالاد میکس",
+    tag: "سالاد میکس",
+    price: 340000,
+    desc: "400 گرم، کاهو، خیارشور، گوجه، سس مخصوص، جوانه ماش، زیتون، گوجه خشک",
+    ingredients: "400 گرم، کاهو، خیارشور، گوجه، سس مخصوص، جوانه ماش، زیتون، گوجه خشک",
+    img: "https://cdn.snappfood.ir/200x201/cdn/49/72/38/product_image/vendor/2512ee6360982c30.jpg"
+  },
+  {
+    id: 43,
+    cat: "drink",
+    name: "نوشابه کوکا شیشه ای",
+    tag: "نوشابه کوکا شی",
+    price: 80000,
+    desc: "یک عدد نوشابه 250 سی سی مشکی",
+    ingredients: "یک عدد نوشابه 250 سی سی مشکی",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 44,
+    cat: "drink",
+    name: "نوشابه فانتا شیشه ای",
+    tag: "نوشابه فانتا ش",
+    price: 80000,
+    desc: "یک عدد نوشابه 250 سی سی شیشه ای زرد",
+    ingredients: "یک عدد نوشابه 250 سی سی شیشه ای زرد",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 45,
+    cat: "drink",
+    name: "نوشابه اسپرایت شیشه ای ",
+    tag: "نوشابه اسپرایت",
+    price: 80000,
+    desc: "یک عدد نوشابه شیشه ای اسپرایت 250 میلی لیتر",
+    ingredients: "یک عدد نوشابه شیشه ای اسپرایت 250 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 46,
+    cat: "drink",
+    name: "لیموناد شیشه ای خوشگوار",
+    tag: "لیموناد شیشه ا",
+    price: 72000,
+    desc: "280 میلی لیتر",
+    ingredients: "280 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 47,
+    cat: "drink",
+    name: "دلستر هی دی لیمو",
+    tag: "دلستر هی دی لی",
+    price: 80000,
+    desc: "یک عدد دلستر شیشه ای هی دی با طعم لیمو 250 میلی لیتر",
+    ingredients: "یک عدد دلستر شیشه ای هی دی با طعم لیمو 250 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 48,
+    cat: "drink",
+    name: "نوشابه زیرو شیشه ای",
+    tag: "نوشابه زیرو شی",
+    price: 80000,
+    desc: "یک عدد نوشابه زیرو شیشه ای 250 میلی لیتر",
+    ingredients: "یک عدد نوشابه زیرو شیشه ای 250 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 49,
+    cat: "drink",
+    name: "آب گازدار نیو دی",
+    tag: "آب گازدار نیو ",
+    price: 51000,
+    desc: "آب گاز دار با طعم لیمو 300 میلی لیتر",
+    ingredients: "آب گاز دار با طعم لیمو 300 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 50,
+    cat: "drink",
+    name: "دلستر هی دی استوایی",
+    tag: "دلستر هی دی اس",
+    price: 80000,
+    desc: "یک عدد دلستر هی دی شیشه ای با طعم استوایی 250 میلی لیتر",
+    ingredients: "یک عدد دلستر هی دی شیشه ای با طعم استوایی 250 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 51,
+    cat: "drink",
+    name: "آب معدنی کوچک",
+    tag: "آب معدنی کوچک",
+    price: 20000,
+    desc: "500 میلی لیتر",
+    ingredients: "500 میلی لیتر",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 52,
+    cat: "extra",
+    name: "پنیر",
+    tag: "پنیر",
+    price: 100000,
+    desc: "90 گرم پنیر پیتزا",
+    ingredients: "90 گرم پنیر پیتزا",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 53,
+    cat: "extra",
+    name: "قارچ و پنیر",
+    tag: "قارچ و پنیر",
+    price: 130000,
+    desc: "قارچ و پنیر 150 گرم",
+    ingredients: "قارچ و پنیر 150 گرم",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 54,
+    cat: "extra",
+    name: "خوراک فیله مرغ گریل",
+    tag: "خوراک فیله مرغ",
+    price: 130000,
+    desc: "یک عدد فیله مرغ 70 گرمی ، سس مخصوص",
+    ingredients: "یک عدد فیله مرغ 70 گرمی ، سس مخصوص",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+  {
+    id: 55,
+    cat: "extra",
+    name: "قارچ تفت داده شده",
+    tag: "قارچ تفت داده ",
+    price: 80000,
+    desc: "100 گرم قارچ تفت داده شده",
+    ingredients: "100 گرم قارچ تفت داده شده",
+    img: "https://cdn.snappfood.ir/pwa/assets/placeholder-images/horizontal_logotype-base.png"
+  },
+];
+
+
+let currentCat = "all";
+
+function renderMenu() {
+  const container = document.getElementById("dishesGrid");
+  const filtered = dishesData.filter(item => currentCat === "all" || item.cat === currentCat);
+
+  document.getElementById("itemCounter").textContent =
+    new Intl.NumberFormat('fa-IR').format(filtered.length) + " آیتم";
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="no-results">چیزی پیدا نشد<br><small style="font-size:13px;font-weight:700;">فیلتر رو عوض کن.</small></div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(dish => `
+    <article class="dish-card" id="dish-${dish.id}">
+      <div class="dish-img-wrapper">
+        <img src="${dish.img}" alt="${dish.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80'">
+        <span class="dish-tag">${dish.tag}</span>
+      </div>
+      <div class="dish-body">
+        <div class="dish-header">
+          <h3 class="dish-title">${dish.name}</h3>
+          <div class="dish-price">${fmtPrice(dish.price)} تومان</div>
+        </div>
+        <p class="dish-desc">${dish.desc}</p>
+        <div class="dish-footer-meta">
+          <strong>محتویات:</strong> ${dish.ingredients}
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+document.getElementById("categoryTabs").addEventListener("click", e => {
+  const btn = e.target.closest("[data-cat]");
+  if (!btn) return;
+  currentCat = btn.dataset.cat;
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b === btn));
+  renderMenu();
+});
+
+function solveParalysis() {
+  const randomIndex = Math.floor(Math.random() * dishesData.length);
+  const selected = dishesData[randomIndex];
+
+  currentCat = "all";
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === "all"));
+  renderMenu();
+
+  const element = document.getElementById(`dish-${selected.id}`);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    element.classList.add("highlighted");
+    setTimeout(() => element.classList.remove("highlighted"), 2500);
+  }
+
+  showToast(`پیشنهاد هگه: <b>${selected.name}</b>`);
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toastPopup");
+  document.getElementById("toastContent").innerHTML = msg;
+  toast.classList.add("show");
+}
+
+function closeToast() {
+  document.getElementById("toastPopup").classList.remove("show");
+}
+
+renderMenu();
+</script>
+
+
+</body></html>
